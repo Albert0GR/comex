@@ -47,6 +47,21 @@ public class Pedido {
         return fecha;
     }
 
+    //nuevos métodos
+
+    //retorna el total del pedido (precio*cantidad)
+    public BigDecimal getValorTotal() {
+        return this.precio.multiply(BigDecimal.valueOf(this.cantidad));
+    }
+    //compara el pedido más barato
+    public boolean isMasBaratoQue(Pedido otroPedido) {
+        return this.getValorTotal().compareTo(otroPedido.getValorTotal()) < 0;
+    }
+    //compara el pedido mas caro
+    public boolean isMasCaroQue(Pedido otroPedido) {
+        return this.getValorTotal().compareTo(otroPedido.getValorTotal()) > 0;
+    }
+
     @Override
     public String toString() {
         return "Pedido{" +
