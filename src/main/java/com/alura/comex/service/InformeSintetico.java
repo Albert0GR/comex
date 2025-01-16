@@ -100,6 +100,13 @@ public class InformeSintetico {
                 .map(Pedido::getValorTotal)             // Obtiene el valor total de cada pedido
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
 
+        //total de categorías distintas
+        this.totalDeCategorias = (int) pedidos
+                .stream()
+                .map(Pedido::getCategoria)   // extrae solo la categoría
+                .distinct()                  // elimina duplicados
+                .count();                    // cuenta cuántas categorías hay
+/*
         CategoriasProcesadas categoriasProcesadas = new CategoriasProcesadas();
 
         for (int i = 0; i < pedidos.size(); i++) {
@@ -116,7 +123,7 @@ public class InformeSintetico {
                 categoriasProcesadas.add(pedidoActual.getCategoria());
             }
         }
-
+*/
 
     }
 }
