@@ -9,6 +9,7 @@ import java.util.*;
 
 import com.alura.comex.service.InformeClientesFieles;
 import com.alura.comex.service.InformeSintetico;
+import com.alura.comex.service.InformeVentasPorCategoria;
 import com.alura.comex.service.ProcesadorDeCsv;
 
 
@@ -33,5 +34,9 @@ public class Main {
         // Informe de clientes fieles
         InformeClientesFieles informeClientesFieles = new InformeClientesFieles(pedidos);
         informeClientesFieles.imprimir();
+
+        // informe de ventas por categoria
+        InformeVentasPorCategoria informePorCategoria = new InformeVentasPorCategoria(pedidos);
+        informePorCategoria.imprimir();
     }
 }
