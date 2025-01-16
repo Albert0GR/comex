@@ -93,6 +93,13 @@ public class InformeSintetico {
                 .mapToInt(Pedido::getCantidad)
                 .sum();
 
+        //Monto de ventas total (sumar "precio * cantidad" de cada pedido, que
+        // en nuestra clase se encapsula con getValorTotal())
+        this.montoDeVentas = pedidos
+                .stream()
+                .map(Pedido::getValorTotal)             // Obtiene el valor total de cada pedido
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
         CategoriasProcesadas categoriasProcesadas = new CategoriasProcesadas();
 
         for (int i = 0; i < pedidos.size(); i++) {
@@ -102,9 +109,6 @@ public class InformeSintetico {
                 break;
             }
 
-
-            montoDeVentas = montoDeVentas.add(pedidoActual.getValorTotal());
-            //totalDeProductosVendidos += pedidoActual.getCantidad();
 
 
             if (!categoriasProcesadas.contains(pedidoActual.getCategoria())) {
