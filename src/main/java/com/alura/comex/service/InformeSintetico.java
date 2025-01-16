@@ -4,6 +4,7 @@ import com.alura.comex.CategoriasProcesadas;
 import com.alura.comex.Pedido;
 
 import java.math.BigDecimal;
+import java.util.Comparator;
 import java.util.List;
 
 public class InformeSintetico {
@@ -72,6 +73,17 @@ public class InformeSintetico {
         this.pedidoMasCaro = null;
         this.totalDeCategorias = 0;
 
+        //Pedido mas barato
+        this.pedidoMasBarato = pedidos
+                .stream()
+                .min(Comparator.comparing(Pedido::getValorTotal))
+                .orElse(null);
+        //Pedido mas caro
+        this.pedidoMasCaro = pedidos
+                .stream()
+                .max(Comparator.comparing(Pedido::getValorTotal))
+                .orElse(null);
+
         CategoriasProcesadas categoriasProcesadas = new CategoriasProcesadas();
 
         for (int i = 0; i < pedidos.size(); i++) {
@@ -81,13 +93,6 @@ public class InformeSintetico {
                 break;
             }
 
-            if (pedidoMasBarato == null || pedidoActual.isMasBaratoQue(pedidoMasBarato)) {
-                pedidoMasBarato = pedidoActual;
-            }
-
-            if (pedidoMasCaro == null || pedidoActual.isMasCaroQue(pedidoMasCaro)) {
-                pedidoMasCaro = pedidoActual;
-            }
 
             montoDeVentas = montoDeVentas.add(pedidoActual.getValorTotal());
             totalDeProductosVendidos += pedidoActual.getCantidad();
@@ -98,5 +103,7 @@ public class InformeSintetico {
                 categoriasProcesadas.add(pedidoActual.getCategoria());
             }
         }
+
+
     }
 }
