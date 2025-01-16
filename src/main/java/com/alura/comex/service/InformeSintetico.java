@@ -84,6 +84,9 @@ public class InformeSintetico {
                 .max(Comparator.comparing(Pedido::getValorTotal))
                 .orElse(null);
 
+        //Total de pedidos realizados (tamaño de la lista)
+        this.totalDePedidosRealizados = pedidos.size();
+
         CategoriasProcesadas categoriasProcesadas = new CategoriasProcesadas();
 
         for (int i = 0; i < pedidos.size(); i++) {
@@ -96,7 +99,7 @@ public class InformeSintetico {
 
             montoDeVentas = montoDeVentas.add(pedidoActual.getValorTotal());
             totalDeProductosVendidos += pedidoActual.getCantidad();
-            totalDePedidosRealizados++;
+
 
             if (!categoriasProcesadas.contains(pedidoActual.getCategoria())) {
                 totalDeCategorias++;
