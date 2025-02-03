@@ -1,12 +1,13 @@
 package com.alura.comex.service.informes;
 
 import com.alura.comex.domain.Pedido;
+import com.alura.comex.interfaces.Informe;
 
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.List;
 
-public class InformeClientesFieles {
+public class InformeClientesFieles implements Informe {
 
     private final Map<String, Long> pedidosPorCliente;
 

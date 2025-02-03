@@ -10,15 +10,26 @@ import com.alura.comex.domain.Pedido;
 import com.alura.comex.service.informes.InformeClientesFieles;
 import com.alura.comex.service.informes.InformeSintetico;
 import com.alura.comex.service.informes.InformeVentasPorCategoria;
+import com.alura.comex.service.procesador.ProcesadorDeArchivos;
 import com.alura.comex.service.procesador.ProcesadorDeCsv;
-
+import com.alura.comex.service.procesador.ProcesadorDeJson;
+import com.alura.comex.service.procesador.ProcesadorDeXml;
 
 
 public class Main {
 
     public static void main(String[] args) throws IOException, URISyntaxException {
-        // Lectura del CSV se hace a través del ProcesadorDeCsv
-        ArrayList<Pedido> pedidos = new ArrayList<>(ProcesadorDeCsv.procesarCSV("pedidos.csv"));
+        // Lectura del archivo cxv
+        //ProcesadorDeArchivos procesador = new ProcesadorDeCsv();
+        //List<Pedido> pedidos = procesador.procesar("pedidos.csv");
+
+        // lectura de json
+        //ProcesadorDeArchivos procesador = new ProcesadorDeJson();
+        //List<Pedido> pedidos = procesador.procesar("pedidos.json");
+
+        // lectura de xml
+        ProcesadorDeArchivos procesador = new ProcesadorDeXml();
+        List<Pedido> pedidos = procesador.procesar("pedidos.xml");
 
         // Nueva clase InformeSintetico que hará todos los cálculos
         InformeSintetico informe = new InformeSintetico(pedidos);

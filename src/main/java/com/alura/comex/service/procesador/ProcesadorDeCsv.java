@@ -13,11 +13,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
-public class ProcesadorDeCsv {
+public class ProcesadorDeCsv implements ProcesadorDeArchivos {
 
-    //se recibe el nombre del archivo CSV
+    @Override
+    public List<Pedido> procesar(String nombreArchivo) throws IOException {
 
-    public static List<Pedido> procesarCSV(String nombreArchivo) throws URISyntaxException, IOException {
         List<Pedido> pedidos = new ArrayList<>();
 
         try {
@@ -57,5 +57,6 @@ public class ProcesadorDeCsv {
 
     return pedidos;
     }
+
 
 }
