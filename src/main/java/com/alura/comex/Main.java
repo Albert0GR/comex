@@ -7,10 +7,7 @@ import java.text.NumberFormat;
 import java.util.*;
 
 import com.alura.comex.domain.Pedido;
-import com.alura.comex.service.informes.InformeClientesFieles;
-import com.alura.comex.service.informes.InformeSintetico;
-import com.alura.comex.service.informes.InformeVentasPorCategoria;
-import com.alura.comex.service.informes.InformeProductosMasVendidos;
+import com.alura.comex.service.informes.*;
 import com.alura.comex.service.procesador.ProcesadorDeArchivos;
 import com.alura.comex.service.procesador.ProcesadorDeCsv;
 import com.alura.comex.service.procesador.ProcesadorDeJson;
@@ -54,5 +51,9 @@ public class Main {
         // Crea el informe de productos más vendidos
         InformeProductosMasVendidos informeTopProductos = new InformeProductosMasVendidos(pedidos);
         informeTopProductos.imprimir();
+
+        // Crea el informe de productos más caros por categoria
+         InformeProductosMasCarosPorCategoria informeProductosMasCarosPorCategoria = new InformeProductosMasCarosPorCategoria(pedidos);
+        informeProductosMasCarosPorCategoria.imprimir();
     }
 }
