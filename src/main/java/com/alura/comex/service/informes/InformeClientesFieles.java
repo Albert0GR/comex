@@ -1,6 +1,6 @@
-package com.alura.comex.service;
+package com.alura.comex.service.informes;
 
-import com.alura.comex.Pedido;
+import com.alura.comex.domain.Pedido;
 
 import java.util.Map;
 import java.util.stream.Collectors;

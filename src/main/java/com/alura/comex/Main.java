@@ -1,16 +1,16 @@
 package com.alura.comex;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.net.URISyntaxException;
 import java.text.NumberFormat;
 import java.util.*;
 
-import com.alura.comex.service.InformeClientesFieles;
-import com.alura.comex.service.InformeSintetico;
-import com.alura.comex.service.InformeVentasPorCategoria;
-import com.alura.comex.service.ProcesadorDeCsv;
+import com.alura.comex.domain.Pedido;
+import com.alura.comex.service.informes.InformeClientesFieles;
+import com.alura.comex.service.informes.InformeSintetico;
+import com.alura.comex.service.informes.InformeVentasPorCategoria;
+import com.alura.comex.service.procesador.ProcesadorDeCsv;
 
 
 

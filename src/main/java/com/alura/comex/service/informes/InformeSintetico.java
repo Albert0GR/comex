@@ -1,7 +1,6 @@
-package com.alura.comex.service;
+package com.alura.comex.service.informes;
 
-import com.alura.comex.CategoriasProcesadas;
-import com.alura.comex.Pedido;
+import com.alura.comex.domain.Pedido;
 
 import java.math.BigDecimal;
 import java.util.Comparator;
