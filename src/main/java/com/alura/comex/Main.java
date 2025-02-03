@@ -10,6 +10,7 @@ import com.alura.comex.domain.Pedido;
 import com.alura.comex.service.informes.InformeClientesFieles;
 import com.alura.comex.service.informes.InformeSintetico;
 import com.alura.comex.service.informes.InformeVentasPorCategoria;
+import com.alura.comex.service.informes.InformeProductosMasVendidos;
 import com.alura.comex.service.procesador.ProcesadorDeArchivos;
 import com.alura.comex.service.procesador.ProcesadorDeCsv;
 import com.alura.comex.service.procesador.ProcesadorDeJson;
@@ -49,5 +50,9 @@ public class Main {
         // informe de ventas por categoria
         InformeVentasPorCategoria informePorCategoria = new InformeVentasPorCategoria(pedidos);
         informePorCategoria.imprimir();
+
+        // Crea el informe de productos más vendidos
+        InformeProductosMasVendidos informeTopProductos = new InformeProductosMasVendidos(pedidos);
+        informeTopProductos.imprimir();
     }
 }
