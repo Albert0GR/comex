@@ -15,7 +15,7 @@ public class InformeProductosMasCarosPorCategoria {
      * - producto más caro
      * - precio de ese producto
      */
-    private static class RegistroCategoria {
+    static class RegistroCategoria {
         private final String categoria;
         private final String producto;
         private final BigDecimal precio;
@@ -73,6 +73,11 @@ public class InformeProductosMasCarosPorCategoria {
                 .sorted(Comparator.comparing(RegistroCategoria::getCategoria))
                 .collect(Collectors.toList());
     }
+//para el test
+    public List<RegistroCategoria> getRegistros() {
+        return Collections.unmodifiableList(this.registros);
+    }
+
 
     /**
      * Imprime el informe por consola.
