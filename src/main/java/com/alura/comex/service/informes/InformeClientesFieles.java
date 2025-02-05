@@ -3,6 +3,7 @@ package com.alura.comex.service.informes;
 import com.alura.comex.domain.Pedido;
 import com.alura.comex.interfaces.Informe;
 
+import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.List;
@@ -23,6 +24,10 @@ public class InformeClientesFieles implements Informe {
                         Collectors.counting()
                 ));
     }
+    public Map<String, Long> getPedidosPorCliente() {
+        return Collections.unmodifiableMap(this.pedidosPorCliente);
+    }
+
 
     /**
      * Imprime en consola la cantidad de pedidos por cada cliente,
