@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 public class InformeVentasPorCategoria {
 
-    
-    private static class RegistroCategoria {
+
+    public static class RegistroCategoria {
         private final String categoria;
         private final int cantidadVendida;
         private final BigDecimal montoVendido;
@@ -70,7 +70,10 @@ public class InformeVentasPorCategoria {
                 .sorted(Comparator.comparing(RegistroCategoria::getCategoria))
                 .collect(Collectors.toList());
     }
-
+//Método para obtener los registros generados para las pruebas
+public List<RegistroCategoria> getRegistros() {
+    return Collections.unmodifiableList(this.registros);
+}
 
     public void imprimir() {
         // Preparar un NumberFormat para formatear el monto

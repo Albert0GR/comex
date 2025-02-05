@@ -23,6 +23,10 @@ public class Pedido {
         this.fecha = fecha;
     }
 
+    public Pedido() {
+
+    }
+
     public String getCategoria() {
         return categoria;
     }
@@ -74,4 +78,28 @@ public class Pedido {
                 '}';
     }
 
+    public void setCategoria(String categoria) {
+    }
+
+    public void setProducto(String producto) {
+    }
+
+    public void setPrecioUnitario(BigDecimal precio) {
+    }
+
+    public void setCantidad(int cantidad) {
+    }
+
+    public void setFecha(String fecha) {
+    }
+
+    public void setCliente(String cliente) {
+    }
+
+    public void setValorTotal(BigDecimal valorTotal) {
+    }
+
+    public BigDecimal getPrecioUnitario() {
+        return null;
+    }
 }
