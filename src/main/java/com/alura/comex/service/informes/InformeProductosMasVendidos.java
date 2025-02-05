@@ -6,11 +6,12 @@ import java.util.stream.Collectors;
 
 public class InformeProductosMasVendidos {
 
+
     /**
      * Clase interna para almacenar el nombre de un producto
      * y la cantidad total vendida de ese producto.
      */
-    private static class RegistroProducto {
+    static class RegistroProducto {
         private final String nombreProducto;
         private final int cantidadVendida;
 
@@ -29,7 +30,8 @@ public class InformeProductosMasVendidos {
     }
 
     // Almacenará los 3 productos con mayor cantidad vendida
-    private final List<RegistroProducto> topTresProductos;
+    // cambio a publico mpara acceder desde el test
+    public final List<RegistroProducto> topTresProductos;
 
     /**
      * Constructor que, al recibir la lista de pedidos,
@@ -55,10 +57,17 @@ public class InformeProductosMasVendidos {
                 .collect(Collectors.toList());
     }
 
+    //Método para obtener los 3 productos más vendidos para el test
+
+    public List<RegistroProducto> getTopTresProductos() {
+        return Collections.unmodifiableList(this.topTresProductos);
+    }
+
     /**
      * Imprime el informe por consola con el formato solicitado.
      */
     public void imprimir() {
+        System.out.println("#### INFORME DE PRODUCTOS MAS VENDIDOS");
         for (RegistroProducto rp : topTresProductos) {
             System.out.printf("PRODUTO: %s\n", rp.getNombreProducto());
             System.out.printf("QUANTIDADE: %d\n", rp.getCantidadVendida());
